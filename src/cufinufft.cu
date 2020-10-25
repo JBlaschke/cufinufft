@@ -85,7 +85,7 @@ int CUFINUFFT_MAKEPLAN(int type, int dim, int *nmodes, int iflag,
 	nmodes  a size 3 integer array, nmodes[d] is the number of modes in d
 	        dimension
 	iflag   if >=0, uses + sign in exponential, otherwise - sign (int)
-    ntransf number of transforms performed in exec stage
+                ntransf number of transforms performed in exec stage
 	tol     precision requested (>1e-16 for double precision, >1e-8 for single
 	        precision)
 	maxbatchsize	when ntransf>1, size of batch of data vectors to perform
@@ -100,7 +100,6 @@ int CUFINUFFT_MAKEPLAN(int type, int dim, int *nmodes, int iflag,
 	doc updated, Barnett, 9/22/20.
 */
 {
-
         // Mult-GPU support: set the CUDA Device ID:
         if (opts == NULL) {
             // options might not be supplied to this function => assume device
@@ -307,7 +306,6 @@ int CUFINUFFT_SETPTS(int M, FLT* d_kx, FLT* d_ky, FLT* d_kz, int N, FLT *d_s,
 	Melody Shih 07/25/19
 */
 {
-
         // Mult-GPU support: set the CUDA Device ID:
         cudaSetDevice(d_plan->opts.cuda_device_id);
 
@@ -452,7 +450,7 @@ int CUFINUFFT_EXECUTE(CUCPX* d_c, CUCPX* d_fk, CUFINUFFT_PLAN d_plan)
 
 	Notes:
 	For now, we assume both h_c, h_fk arrays are on cpu so this stage includes
-    copying the arrays from/to cpu to/from gpu.
+        copying the arrays from/to cpu to/from gpu.
 
 	Melody Shih 07/25/19
 */
@@ -563,7 +561,7 @@ int CUFINUFFT_DEFAULT_OPTS(int type, int dim, cufinufft_opts *opts)
 	"default_opts" stage:
 
 	In this stage, the default options in cufinufft_opts are set.
-  Options with prefix "gpu_" are used for gpu code.
+        Options with prefix "gpu_" are used for gpu code.
 
 	Notes:
 	Values set in this function for different type and dimensions are preferable
