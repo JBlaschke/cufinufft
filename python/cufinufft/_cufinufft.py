@@ -88,6 +88,7 @@ def _get_NufftOpts():
         ('gpu_maxsubprobsize', c_int),
         ('gpu_nstreams', c_int),
         ('gpu_kerevalmeth', c_int),
+        ('gpu_spreadinterponly', c_int),
         ('cuda_device_id', c_int)]
     return fields
 
